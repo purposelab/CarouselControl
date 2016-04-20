@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		479932701CC74F600011FE55 /* SFCarouselVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4799326F1CC74F600011FE55 /* SFCarouselVC.swift */; };
+		479932741CC771880011FE55 /* GLFMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 479932731CC771880011FE55 /* GLFMainViewController.swift */; };
+		479932761CC779D00011FE55 /* GLFBottomContentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 479932751CC779D00011FE55 /* GLFBottomContentCell.swift */; };
+		479932781CC779DF0011FE55 /* GLFRadioContentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 479932771CC779DF0011FE55 /* GLFRadioContentCell.swift */; };
+		4799327A1CC77A550011FE55 /* GLFContentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 479932791CC77A550011FE55 /* GLFContentVC.swift */; };
+		4799327C1CC77AEF0011FE55 /* GLFContentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4799327B1CC77AEF0011FE55 /* GLFContentCell.swift */; };
+		4799327F1CC77BDA0011FE55 /* GLFContentItemDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4799327E1CC77BDA0011FE55 /* GLFContentItemDTO.swift */; };
+		479932811CC784A10011FE55 /* GLFRadioContentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 479932801CC784A10011FE55 /* GLFRadioContentVC.swift */; };
 		47B089C21C69B5770011E8BB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47B089C11C69B5770011E8BB /* AppDelegate.swift */; };
 		47B089C41C69B5770011E8BB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47B089C31C69B5770011E8BB /* ViewController.swift */; };
 		47B089C71C69B5770011E8BB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 47B089C51C69B5770011E8BB /* Main.storyboard */; };
@@ -19,6 +27,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4799326F1CC74F600011FE55 /* SFCarouselVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SFCarouselVC.swift; sourceTree = "<group>"; };
+		479932731CC771880011FE55 /* GLFMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GLFMainViewController.swift; sourceTree = "<group>"; };
+		479932751CC779D00011FE55 /* GLFBottomContentCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GLFBottomContentCell.swift; sourceTree = "<group>"; };
+		479932771CC779DF0011FE55 /* GLFRadioContentCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GLFRadioContentCell.swift; sourceTree = "<group>"; };
+		479932791CC77A550011FE55 /* GLFContentVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GLFContentVC.swift; sourceTree = "<group>"; };
+		4799327B1CC77AEF0011FE55 /* GLFContentCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GLFContentCell.swift; sourceTree = "<group>"; };
+		4799327E1CC77BDA0011FE55 /* GLFContentItemDTO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GLFContentItemDTO.swift; sourceTree = "<group>"; };
+		479932801CC784A10011FE55 /* GLFRadioContentVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GLFRadioContentVC.swift; sourceTree = "<group>"; };
 		47B089BE1C69B5770011E8BB /* SFCarousel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SFCarousel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		47B089C11C69B5770011E8BB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		47B089C31C69B5770011E8BB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -43,6 +59,36 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		479932711CC771430011FE55 /* Content Cell */ = {
+			isa = PBXGroup;
+			children = (
+				479932751CC779D00011FE55 /* GLFBottomContentCell.swift */,
+				479932771CC779DF0011FE55 /* GLFRadioContentCell.swift */,
+				4799327B1CC77AEF0011FE55 /* GLFContentCell.swift */,
+				479932791CC77A550011FE55 /* GLFContentVC.swift */,
+				479932801CC784A10011FE55 /* GLFRadioContentVC.swift */,
+			);
+			name = "Content Cell";
+			sourceTree = "<group>";
+		};
+		479932721CC7714B0011FE55 /* Control */ = {
+			isa = PBXGroup;
+			children = (
+				47B089D51C69B5E20011E8BB /* SFCarouselView.swift */,
+				47B089D71C6C72420011E8BB /* SFCarouselViewCell.swift */,
+				4799326F1CC74F600011FE55 /* SFCarouselVC.swift */,
+			);
+			name = Control;
+			sourceTree = "<group>";
+		};
+		4799327D1CC77BCC0011FE55 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				4799327E1CC77BDA0011FE55 /* GLFContentItemDTO.swift */,
+			);
+			name = Data;
+			sourceTree = "<group>";
+		};
 		47B089B51C69B5770011E8BB = {
 			isa = PBXGroup;
 			children = (
@@ -62,10 +108,12 @@
 		47B089C01C69B5770011E8BB /* SFCarousel */ = {
 			isa = PBXGroup;
 			children = (
+				4799327D1CC77BCC0011FE55 /* Data */,
+				479932731CC771880011FE55 /* GLFMainViewController.swift */,
+				479932711CC771430011FE55 /* Content Cell */,
+				479932721CC7714B0011FE55 /* Control */,
 				47B089C11C69B5770011E8BB /* AppDelegate.swift */,
 				47B089C31C69B5770011E8BB /* ViewController.swift */,
-				47B089D51C69B5E20011E8BB /* SFCarouselView.swift */,
-				47B089D71C6C72420011E8BB /* SFCarouselViewCell.swift */,
 				47B089C51C69B5770011E8BB /* Main.storyboard */,
 				47B089C81C69B5770011E8BB /* Assets.xcassets */,
 				47B089CA1C69B5770011E8BB /* LaunchScreen.storyboard */,
@@ -148,10 +196,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				479932741CC771880011FE55 /* GLFMainViewController.swift in Sources */,
+				479932781CC779DF0011FE55 /* GLFRadioContentCell.swift in Sources */,
+				479932811CC784A10011FE55 /* GLFRadioContentVC.swift in Sources */,
 				47B089D61C69B5E20011E8BB /* SFCarouselView.swift in Sources */,
+				4799327C1CC77AEF0011FE55 /* GLFContentCell.swift in Sources */,
 				47B089D81C6C72420011E8BB /* SFCarouselViewCell.swift in Sources */,
 				47B089FB1C781ED10011E8BB /* SFTestContentView.swift in Sources */,
+				479932701CC74F600011FE55 /* SFCarouselVC.swift in Sources */,
 				47B089C41C69B5770011E8BB /* ViewController.swift in Sources */,
+				4799327F1CC77BDA0011FE55 /* GLFContentItemDTO.swift in Sources */,
+				479932761CC779D00011FE55 /* GLFBottomContentCell.swift in Sources */,
+				4799327A1CC77A550011FE55 /* GLFContentVC.swift in Sources */,
 				47B089C21C69B5770011E8BB /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

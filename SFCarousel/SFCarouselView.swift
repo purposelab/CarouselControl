@@ -13,6 +13,7 @@ import UIKit
     func carouselViewNumberOfItems(carouselView: SFCarouselView) -> Int
     func carouselView(carouselView: SFCarouselView, cellForItemAtIndex index: Int) -> SFCarouselViewCell
     
+    optional func carouselView(carouselView: SFCarouselView, didShowCell cell: SFCarouselViewCell, forItemAtIndex index: Int)
     optional func carouselView(carouselView: SFCarouselView, didEndDisplayingCell cell: SFCarouselViewCell, forItemAtIndex index: Int)
     optional func carouselViewWillTransitToState(carouselView: SFCarouselView, fastMode: Bool)
     optional func carouselViewDidTransit(carouselView: SFCarouselView, transitionRatio: CGFloat)
@@ -51,11 +52,11 @@ class SFCarouselView: UIView
     var layout: SFCarouselViewLayout!
     
     internal var scrollView: UIScrollView!
-    internal var fastMode = true
+    internal var fastMode = false
     internal var animationMode = false
     
     var swipeLocked: Bool = false
-        {
+    {
         didSet
         {
             scrollView.scrollEnabled = swipeLocked
@@ -225,7 +226,7 @@ class SFCarouselView: UIView
     
     func insertItemAtIndex(index: Int)
     {
-        currentItemsCount++
+        currentItemsCount += 1
         updateVisibleCellIndexes(index, updateFunction: +)
         changeContentOffsetX(scrollView.contentOffset.x + fullItemWidth + fullItemSpace)
         tileCells(true)
@@ -233,7 +234,7 @@ class SFCarouselView: UIView
     
     func deleteItemAtIndexPath(index: Int)
     {
-        currentItemsCount--
+        currentItemsCount -= 1
         updateVisibleCellIndexes(min(index, currentItemsCount), updateFunction: -)
         changeContentOffsetX(scrollView.contentOffset.x - fullItemWidth - fullItemSpace)
         tileCells(true)
@@ -398,6 +399,13 @@ extension SFCarouselView: UIScrollViewDelegate
     
     internal func addCellToVisible(index:Int)
     {
+        var tempIndex = index
+        
+        if index > menuItemIndex
+        {
+            tempIndex -= 1
+        }
+        
         if index == menuItemIndex
         {
             if let cell = delegate?.carouselViewMenuCell?(self)
@@ -407,12 +415,13 @@ extension SFCarouselView: UIScrollViewDelegate
                 cell.tag = index
                 addAndPlaceCell(cell)
             }
-        }else if let cell = delegate?.carouselView(self, cellForItemAtIndex: index)
+        }else if let cell = delegate?.carouselView(self, cellForItemAtIndex: tempIndex)
         {
             //print("addCellToVisible \(index)")
             
             cell.tag = index
             addAndPlaceCell(cell)
+            delegate?.carouselView?(self, didShowCell: cell, forItemAtIndex: tempIndex)
         }
     }
     
@@ -612,11 +621,11 @@ extension SFCarouselView
     
     internal func initializeGestureRecognizers()
     {
-        fastModePan = UIPanGestureRecognizer(target: self, action: "fastModePanHandler:")
+        fastModePan = UIPanGestureRecognizer(target: self, action: #selector(SFCarouselView.fastModePanHandler(_:)))
         fastModePan.delegate = self
         scrollView.addGestureRecognizer(fastModePan)
         
-        let touch = UITapGestureRecognizer(target: self, action: "touchViewTapHandler:")
+        let touch = UITapGestureRecognizer(target: self, action: #selector(SFCarouselView.touchViewTapHandler(_:)))
         scrollView.addGestureRecognizer(touch)
     }
     
@@ -709,9 +718,9 @@ extension SFCarouselView: UIGestureRecognizerDelegate
                     
                     if idx < count-1
                     {
-                        nextIdx++
+                        nextIdx += 1
                     }else{
-                        nextIdx--
+                        nextIdx -= 1
                         
                     }
                     
@@ -828,8 +837,6 @@ extension SFCarouselView: UIGestureRecognizerDelegate
     
     internal func panEndedAnimated(small:Bool, cellIndex:Int? = nil, completion:(()->())? = nil)
     {
-        
-        
         if small
         {
             placeNeededCellsBeforeAnimation()
